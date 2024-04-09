@@ -68,6 +68,13 @@ acreage	| totalvalue | buildingvalue | landvalue | bedrooms
 -- | -- | -- | -- | --
 0.201	| 0.662	| 0.575	| 0.604	| 0.373
 
+### Insight:
+
+This reveals that a property's total value, encompassing both building and land value, has a strong correlation with its sale price, making it a reliable predictor of price. This implies that properties with higher values are likely to fetch higher sale prices. 
+
+However, the size of a property, measured in acres, has a weak positive correlation, suggesting that factors like location or condition might be more influential in setting a property's price. 
+
+Similarly, the number of bedrooms has a relatively weak correlation with sale price, indicating that property size (bedrooms) isn't the main determinant of value.
 
 
 
