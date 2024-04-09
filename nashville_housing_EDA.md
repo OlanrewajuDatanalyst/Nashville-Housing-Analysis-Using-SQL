@@ -59,7 +59,7 @@ value_year | avg_year_value | prev_year_value | yoy_value_change
 2015 | 226549.71 | 249163.15 | -9.08
 2016 | 201931.01 | 226549.71 | -10.87
 
-### Output:
+### Insight:
 
 The consistent decline in market values, accelerating from -3.6% in 2014 to -10.87% in 2016, signals a bearish market influenced by factors such as reduced demand and or broader economic conditions impacting buyers' purchasing power.
 
