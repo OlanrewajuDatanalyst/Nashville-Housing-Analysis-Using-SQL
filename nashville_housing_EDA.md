@@ -34,6 +34,16 @@ from (
     order by 1
     )
 ```
+### Output:
+sale_year | avg_year_price | prev_year_price | yoy_growth_decline
+-- | -- | -- | -- 
+2013 | 244577.49 -- | --
+2014 | 334351.81 | 244577.49 | 36.71
+2015 | 399936.39 | 334351.81 | 19.62
+2016 | 301071.39 | 399936.39 | -24.72
+
+
+
 
 ### 4. Examine trends in TotalValue over the years to identify patterns in property valuations.
 ```sql
@@ -52,6 +62,7 @@ from (
     order by 1
     )
 ```
+### Output:
 value_year | avg_year_value | prev_year_value | yoy_value_change
 -- | -- | -- | -- 
 2013 | 258462.51 | -- | --
