@@ -63,6 +63,13 @@ select
     ROUND(corr(SalePrice, bedrooms)::numeric, 3) as Bedrooms
 from nashville_housing;
 ```
+### Output:
+acreage	| totalvalue | buildingvalue | landvalue | bedrooms
+-- | -- | -- | -- | 
+0.201	| 0.662	| 0.575	| 0.604	| 0.373
+
+
+
 
 ### 6. Analyze the average SalePrice or TotalValue for different types of properties.
 ```sql
