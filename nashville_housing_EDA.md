@@ -1,4 +1,4 @@
-### 1.Average selling price of Nashville_Housing
+### 1. Average selling price of Nashville_Housing
 ```sql
 select 
     ROUND(avg(saleprice), 2) as AvgSalePrice
@@ -7,7 +7,7 @@ from
 ```
 
 
-### 2.Count the frequency of different LandUse categories.
+### 2. Count the frequency of different LandUse categories.
 ```sql
 select 
     landuse,
@@ -17,7 +17,7 @@ group by 1
 order by 2 desc
 ```
 
-### 3.Analyze trends in SalePrice over different year to understand how property prices have changed over time.
+### 3. Analyze trends in SalePrice over different year to understand how property prices have changed over time.
 ```sql
 select 
     *,
@@ -35,7 +35,7 @@ from (
     )
 ```
 
-### 4.Examine trends in TotalValue over the years to identify patterns in property valuations.
+### 4. Examine trends in TotalValue over the years to identify patterns in property valuations.
 ```sql
 select 
     *,
@@ -53,7 +53,7 @@ from (
     )
 ```
 
-### 5.Looking for the relationship between saleprice and other variables such as Acreage, Totalvalue, Building, LandValue, Bedroom 
+### 5. Determine the correlation between SalePrice and other numerical variables such as Acreage, LandValue, BuildingValue, TotalValue, Bedrooms, to understand their relationships.
 ```sql
 select 
     ROUND(corr(SalePrice, Acreage)::numeric, 3) as Acreage,
@@ -64,7 +64,7 @@ select
 from nashville_housing;
 ```
 
-### 6.Analyze the average SalePrice or TotalValue for different types of properties.
+### 6. Analyze the average SalePrice or TotalValue for different types of properties.
 ```sql
 select * from (
 select 
