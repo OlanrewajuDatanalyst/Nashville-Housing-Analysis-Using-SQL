@@ -52,6 +52,13 @@ from (
     order by 1
     )
 ```
+value_year | avg_year_value | prev_year_value | yoy_value_change
+-- | -- | -- | -- | --
+2013 | 258462.51 | -- | --
+2014 | 249163.15 | 258462.51 | -3.6
+2015 | 226549.71 | 249163.15 | -9.08
+2016 | 201931.01 | 226549.71 | -10.87
+
 
 ### 5. Determine the correlation between SalePrice and other numerical variables such as Acreage, LandValue, BuildingValue, TotalValue, Bedrooms, to understand their relationships.
 ```sql
