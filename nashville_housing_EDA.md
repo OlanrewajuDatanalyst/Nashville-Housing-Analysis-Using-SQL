@@ -42,7 +42,11 @@ sale_year | avg_year_price | prev_year_price | yoy_growth_decline
 2015 | 399936.39 | 334351.81 | 19.62
 2016 | 301071.39 | 399936.39 | -24.72
 
+### Insight:
 
+From 2013 to 2015, there was substantial growth in yearly property prices, likely due to increased demand and favorable market conditions. However, 2016 saw a sharp decline, signaling a market correction possibly driven by changing economic conditions, buyer sentiment shifts, or market oversupply.
+
+Understanding the 2016 decline's causes is vital for effective strategy adjustment. Diversify portfolios to mitigate risks, consider diverse investments is crucial.
 
 
 ### 4. Examine trends in TotalValue over the years to identify patterns in property valuations.
