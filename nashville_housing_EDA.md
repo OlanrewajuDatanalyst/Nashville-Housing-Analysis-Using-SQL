@@ -77,7 +77,6 @@ The consistent decline in market values, accelerating from -3.6% in 2014 to -10.
 This trend presents opportunities for acquiring properties at lower prices, though it necessitates careful analysis to avoid risks in a declining market. Strategies such as portfolio diversification, renovations, and value-add projects can counteract market downturns.
 
 
-
 ### 4. Determine the correlation between SalePrice and other numerical variables such as Acreage, LandValue, BuildingValue, TotalValue, Bedrooms, to understand their relationships.
 ```sql
 select 
@@ -102,8 +101,74 @@ However, the size of a property, measured in acres, has a weak positive correlat
 Similarly, the number of bedrooms has a relatively weak correlation with sale price, indicating that property size (bedrooms) isn't the main determinant of value.
 
 
+### 5. Compare the frequency and distribution of property types based on LandUse.
+```sql
+select
+    *,
+    concat(ROUND(
+                (Total_Properties / sum(Total_Properties) over())* 100, 2
+                ), '%') as Property_type_distribution
+from (
+    select 
+        distinct landuse as landuse,
+        count(1) as Total_Properties
+    from nashville_housing
+    group by landuse
+    order by 2 desc
+    )
+```
+### Output:
+landuse | total_properties | property_type_distribution
+-- | -- | --  
+SINGLE FAMILY | 34117 | 60.52%
+RESIDENTIAL CONDO | 14064 | 24.95%
+VACANT RESIDENTIAL LAND | 3540 | 6.28%
+VACANT RES LAND | 1549 | 2.75%
+DUPLEX | 1372 | 2.43%
+ZERO LOT LINE | 1047 | 1.86%
 
-### 5. Analyze the average SalePrice for different types of Property.
+
+
+### 6. Analyze the frequency and distribution of vacant properties based on SoldAsVacant.
+```sql
+with cte1 as (
+            select
+                distinct landuse,
+                count(landuse) over() as Total_Properties
+            from nashville_housing
+            where soldasvacant = 'Yes'),
+    cte2 as (
+            select 
+                landuse,
+                count(landuse) as TotalbyLandUse
+            from nashville_housing
+            where soldasvacant = 'Yes'
+            group by 1)
+select
+    Landuse,
+    Tot_Properties,
+    Tot_by_Landuse,
+    concat(ROUND((Tot_by_Landuse / Tot_Properties)* 100, 2), '%') as SoldAsVacantDist_
+from (
+        select 
+            a.landuse,
+            Total_Properties::numeric as Tot_Properties,
+            TotalbyLandUse::numeric as Tot_by_Landuse
+        from cte2 b
+        join cte1 a
+            on b.landuse = a.landuse
+        order by 3 desc)
+```
+### Output:
+landuse | tot_properties | tot_by_landuse | soldasvacantdist_
+-- | -- | -- | -- 
+VACANT RESIDENTIAL LAND | 4669 | 2845 | 60.93%
+VACANT RES LAND | 4669 | 961 | 20.58%
+SINGLE FAMILY | 4669 | 593 | 12.70%
+RESIDENTIAL CONDO | 4669 | 223 | 4.78%
+RESIDENTIAL COMBO/MISC | 4669 | 13 | 0.28%
+
+### 7. Analyze the average SalePrice for different types of Property.
 ```sql
 -- Properties Average Sales price from the highest to...
 select * from (
@@ -129,7 +194,7 @@ FOREST | 1085330
 CHURCH | 840590.91
 GREENBELT | 604938.5
 
-### 6. Analyze the TotalValue for different types of Property.
+### 8. Analyze the TotalValue for different types of Property.
 ```sql
 -- Properties Average Total Value from the highest to...
 select * from (
@@ -158,7 +223,7 @@ VACANT RES LAND | 274195.51
 
 
 
-### 6. This is to check the number of properties sold as vacant compare to those not sold as vacant, and the land use with the most vacant before sale
+### 9. Analyze the number of properties sold as vacant compare to those not sold as vacant, and the land use with the most vacant before sale
 ```sql
 select 
     landuse,
@@ -192,7 +257,7 @@ RESIDENTIAL COMBO/MISC | 82 | 13
 QUADPLEX | 39 | 0
 
 
-### 7. Investigate the average price, total value of properties sold as vacant and those sold as occupied.
+### 10. Investigate the average price, total value of properties sold as vacant and those sold as occupied.
 ```sql
 with  cte as (
         select 
@@ -245,69 +310,3 @@ STRIP SHOPPING CENTER | 424900 | 389900 | 0 | 0
 SMALL SERVICE SHOP | 400000 | 0 | 0 | 0
 
 
-### 8. Compare the frequency and distribution of property types based on LandUse.
-```sql
-select
-    *,
-    concat(ROUND(
-                (Total_Properties / sum(Total_Properties) over())* 100, 2
-                ), '%') as Property_type_distribution
-from (
-    select 
-        distinct landuse as landuse,
-        count(1) as Total_Properties
-    from nashville_housing
-    group by landuse
-    order by 2 desc
-    )
-```
-### Output:
-landuse | total_properties | property_type_distribution
--- | -- | --  
-SINGLE FAMILY | 34117 | 60.52%
-RESIDENTIAL CONDO | 14064 | 24.95%
-VACANT RESIDENTIAL LAND | 3540 | 6.28%
-VACANT RES LAND | 1549 | 2.75%
-DUPLEX | 1372 | 2.43%
-ZERO LOT LINE | 1047 | 1.86%
-
-
-
-### 9. Analyze the frequency and distribution of vacant properties based on SoldAsVacant.
-```sql
-with cte1 as (
-            select
-                distinct landuse,
-                count(landuse) over() as Total_Properties
-            from nashville_housing
-            where soldasvacant = 'Yes'),
-    cte2 as (
-            select 
-                landuse,
-                count(landuse) as TotalbyLandUse
-            from nashville_housing
-            where soldasvacant = 'Yes'
-            group by 1)
-select
-    Landuse,
-    Tot_Properties,
-    Tot_by_Landuse,
-    concat(ROUND((Tot_by_Landuse / Tot_Properties)* 100, 2), '%') as SoldAsVacantDist_
-from (
-        select 
-            a.landuse,
-            Total_Properties::numeric as Tot_Properties,
-            TotalbyLandUse::numeric as Tot_by_Landuse
-        from cte2 b
-        join cte1 a
-            on b.landuse = a.landuse
-        order by 3 desc)
-```
-### Output:
-landuse | tot_properties | tot_by_landuse | soldasvacantdist_
--- | -- | -- | -- 
-VACANT RESIDENTIAL LAND | 4669 | 2845 | 60.93%
-VACANT RES LAND | 4669 | 961 | 20.58%
-SINGLE FAMILY | 4669 | 593 | 12.70%
-RESIDENTIAL CONDO | 4669 | 223 | 4.78%
-RESIDENTIAL COMBO/MISC | 4669 | 13 | 0.28%
