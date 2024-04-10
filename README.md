@@ -17,18 +17,20 @@ Significant variation exists in real estate prices across different cities withi
 
 #### Market Fluctuations and Trends:
 
-Analysis of housing prices from 2014 to 2016 reveals notable fluctuations, including substantial growth in some areas followed by declines in others, underlining the importance of thorough market analysis for informed decision-making.
-The consistent decline in market values from 2014 to 2016 suggests a bearish market influenced by factors such as reduced demand and broader economic conditions, presenting both risks and opportunities for investors.
+- Analysis of housing prices from 2014 to 2016 reveals notable fluctuations, including substantial growth in some areas followed by declines in others, underlining the importance of thorough market analysis for informed decision-making.
+- The consistent decline in market values from 2014 to 2016 suggests a bearish market influenced by factors such as reduced demand and broader economic conditions, presenting both risks and opportunities for investors.
 
 #### Determinants of Property Value:
 
-Total property value, encompassing both building and land value, demonstrates a strong correlation with sale price, highlighting its significance as a predictor of price.
-Factors like property size (measured in acres) and the number of bedrooms exhibit relatively weaker correlations with sale price, indicating that other factors such as location or condition may play a more influential role.
+- Total property value, encompassing both building and land value, demonstrates a strong correlation with sale price, highlighting its significance as a predictor of price.
+
+- Factors like property size (measured in acres) and the number of bedrooms exhibit relatively weaker correlations with sale price, indicating that other factors such as location or condition may play a more influential role.
 
 #### Market Segmentation and Opportunities:
 
-Single-family properties dominate the market, followed by residential condos, signaling robust demand for traditional housing options.
-Relatively smaller segments occupied by vacant residential land, duplexes, and zero lot lines suggest potential areas for expansion and diversification, presenting opportunities for stakeholders.
+- Single-family properties dominate the market, followed by residential condos, signaling robust demand for traditional housing options.
+
+- Relatively smaller segments occupied by vacant residential land, duplexes, and zero lot lines suggest potential areas for expansion and diversification, presenting opportunities for stakeholders.
 
 ---
 ### Recommendations:
