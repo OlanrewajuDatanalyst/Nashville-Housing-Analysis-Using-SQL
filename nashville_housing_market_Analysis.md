@@ -90,7 +90,7 @@ as result (city varchar, "2014" numeric, "2015" numeric, "2016" numeric)
 order by 2 desc
 ```
 ### Output: 
-Note: The values of 2014 is the change from 2013
+Note: The values are in percentages, the values of 2014 is the change from 2013
 city | 2014 | 2015 | 2016
 -- | -- | -- | --
 NASHVILLE | 41.38 | 23.73 | -25.52
