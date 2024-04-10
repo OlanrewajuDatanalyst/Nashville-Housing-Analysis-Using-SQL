@@ -105,7 +105,7 @@ MOUNT JULIET | -3.36 | 15.58 | 31.54
 OLD HICKORY | -6.34 | 15.48 | 17.36
 
 ### Insight:
-The table showcases the percentage change in housing prices across various cities in the Nashville area from 2014 to 2016. Noteworthy trends include substantial growth in Nashville and Madison in 2014, followed by mixed performance in subsequent years. Antioch and Whites Creek saw significant declines in 2016, indicating potential market corrections. 
+The percentage change in housing prices across various cities in the Nashville area from 2014 to 2016. Noteworthy trends include substantial growth in Nashville and Madison in 2014, followed by mixed performance in subsequent years. Antioch and Whites Creek saw significant declines in 2016, indicating potential market corrections. 
 
 Overall, these fluctuations underscore the importance of thorough market analysis and risk assessment for investors navigating the dynamic real estate landscape of the Nashville region.
 
