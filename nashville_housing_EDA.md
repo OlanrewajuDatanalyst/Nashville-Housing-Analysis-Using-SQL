@@ -16,6 +16,42 @@ avgsaleprice | avgtotalvalue | ratio_value_to_price
 ### Insight:
 The ratio of value to price at 1:1.408 indicates that properties are selling for more than their assessed values on average, suggesting strong demand or potential overvaluation.
 
+```sql
+select * from (
+select 
+	distinct city,
+	ROUND(avg(saleprice), 2) as AvgSalePrice,
+	ROUND(avg(TotalValue), 2) as AvgTotalValue,
+	ROUND(
+			(avg(saleprice)/ avg(TotalValue)), 3) as Ratio_Value_to_Price
+from Nashville_Housing
+group by city
+order by 4 desc)
+where AvgTotalValue is not null
+```
+### Output:
+city | avgsaleprice | avgtotalvalue | ratio_value_to_price
+-- | -- | -- | -- 
+ANTIOCH | 252798.07 | 111759.52 | 1:2.262
+BELLEVUE | 25000 | 12400 | 1:2.016
+GOODLETTSVILLE | 289639.39 | 147622.03 | 1:962
+WHITES CREEK | 168434.26 | 94670.83 | 1:1.779
+HERMITAGE | 199901.82 | 131214.44 | 1:1.523
+NASHVILLE | 366624.76 | 256490.73 | 1:1.429
+OLD HICKORY | 191082.95 | 146235.24 | 1:1.307
+MADISON | 136537.12 | 118732.14 | 1:1.150
+MOUNT JULIET | 243490.19 | 213200 | 1:1.142
+JOELTON | 143239.18 | 136618.18 | 1:1.048
+BRENTWOOD | 312258.06 | 434475.98 | 1:0.719
+NOLENSVILLE | 287143.72 | 1921700 | 1:0.149
+
+### Insight:
+The real estate landscape presents a diverse range of average sale prices, spanning from $25,000 in Bellevue to $366,624.76 in Nashville, showcasing significant variability in property values throughout the region. 
+
+This variation is mirrored in the average total values, reflecting the nuanced economic dynamics and real estate market conditions within each city. 
+
+The ratio of average total value to average sale price further illuminates the market's efficiency and competitiveness. Notably, Antioch boasts the highest ratio at 1:2.262, implying favorable value relative to the sale price, while Nolensville, though with a high price exhibits the lowest ratio at 1:0.149, suggesting potential overpricing in comparison to property values. These then underscore the importance of considering both sale prices and total values when assessing investment opportunities or market trends in the real estate sector.
+
 
 ### 2. Analyze trends in SalePrice over different year to understand how property prices have changed over time.
 ```sql
