@@ -103,7 +103,7 @@ Similarly, the number of bedrooms has a relatively weak correlation with sale pr
 
 
 
-### 5. Analyze the average SalePrice or TotalValue for different types of Property.
+### 5. Analyze the average SalePrice for different types of Property.
 ```sql
 -- Properties Average Sales price from the highest to...
 select * from (
@@ -113,18 +113,8 @@ select
 from nashville_housing
 group by 1
 order by 2 desc)
-
--- Properties Average Total Value from the highest to...
-select * from (
-select 
-    landuse,
-    ROUND(avg(Totalvalue), 2) AvgTotalValue
-from nashville_housing
-group by 1
-order by 2 desc)
-where AvgTotalValue is not null
 ```
-### Output by Saleprice:
+### Output:
 
 landuse | avgsaleprice
 -- | --
@@ -139,7 +129,20 @@ FOREST | 1085330
 CHURCH | 840590.91
 GREENBELT | 604938.5
 
-### Output by TotalValue:
+### 6. Analyze the TotalValue for different types of Property.
+```sql
+-- Properties Average Total Value from the highest to...
+select * from (
+select 
+    landuse,
+    ROUND(avg(Totalvalue), 2) AvgTotalValue
+from nashville_housing
+group by 1
+order by 2 desc)
+where AvgTotalValue is not null
+```
+
+### Output:
 landuse | avgtotalvalue
 -- | --
 LIGHT MANUFACTURING | 888500
