@@ -117,3 +117,27 @@ drop column propertyaddress,
 drop column taxdistrict
 
 
+-- Remove the dollar sign in some of the pricing, just 6 rows
+update nashville_housing
+set saleprice = replace(saleprice, '$', '')
+where saleprice like '%$%';
+
+update nashville_housing
+set saleprice = replace(saleprice, ',', '')
+where saleprice like '%,%';
+
+alter table nashville_housing
+alter column saleprice type integer
+using saleprice::integer
+
+
+-- The trend of the dataset last between 2013 to 2016 but has two rows of 2019 dataset
+alter table nashville_housing
+add Salesyear int
+
+update nashville_housing
+set Salesyear = date_part('Year', saledate) 
+
+DELETE FROM nashville_housing
+WHERE Salesyear = 2019;
+
