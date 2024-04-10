@@ -12,8 +12,8 @@ Through meticulous cleaning, processing, and analysis utilizing SQL, the study a
 
 #### Demand and Pricing Trends:
 
-The dataset reflects a robust real estate market in Nashville, with properties often selling for more than their values, indicating strong demand within the area.
-Significant variation exists in real estate prices across different cities within the region, emphasizing the diverse nature of property values and economic dynamics.
+- The dataset reflects a robust real estate market in Nashville, with properties often selling for more than their values, indicating strong demand within the area.
+- Significant variation exists in real estate prices across different cities within the region, emphasizing the diverse nature of property values and economic dynamics.
 
 #### Market Fluctuations and Trends:
 
