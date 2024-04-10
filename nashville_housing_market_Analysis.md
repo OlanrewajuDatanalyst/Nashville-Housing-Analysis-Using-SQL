@@ -61,6 +61,52 @@ This variation is mirrored in the average total values, reflecting the nuanced e
 
 The ratio of average total value to average sale price further illuminates the market's efficiency and competitiveness. Notably, **Antioch boasts the highest ratio at 1:2.262**, implying favorable value relative to the sale price, while **Nolensville, though with a high price exhibits the lowest ratio at 1:0.149**, suggesting potential overpricing in comparison to property values. These then underscore the importance of considering both sale prices and total values when assessing investment opportunities or market trends in the real estate sector.
 
+
+---
+### 3. Analyze trends in SalePrice over different year to understand how prices have changed over time in each cities.
+```sql
+select 
+	*	
+from crosstab(
+		'select
+			city,
+			Sale_Year,
+			ROUND(
+				((Averageprice - PrevYearAvgPrice) / PrevYearAvgPrice)* 100, 2
+				) as YOY_Change
+		from (
+			select
+				city as city,
+				date_part(''Year'', saledate) as Sale_Year,
+				avg(saleprice) as Averageprice,
+				lag(avg(saleprice)) over(
+						partition by city order by date_part(''Year'', saledate)
+				    ) as PrevYearAvgPrice
+			from nashville_housing
+			group by 1, 2
+			order by 1, 2)
+		where PrevYearAvgPrice is not null')
+as result (city varchar, "2014" numeric, "2015" numeric, "2016" numeric)
+order by 2 desc
+```
+### Output: ### in percentages
+city | 2014 | 2015 | 2016
+-- | -- | -- | --
+NASHVILLE | 41.38 | 23.73 | -25.52
+MADISON | 36.91 | -10.64 | 0.79
+ANTIOCH | 27.27 | 9.65 | -34.4
+HERMITAGE | 26.47 | -10.17 | 10.02
+WHITES CREEK | 25.03 | -31.17	41.62
+NOLENSVILLE | 9.91 | -5.74 | 7.62
+JOELTON | 1.79 | 5.71 | 29.75
+BRENTWOOD | 0.41 | 8.91 | 7.05
+GOODLETTSVILLE | -0.33 | -- | -54
+MOUNT JULIET | -3.36 | 15.58 | 31.54
+OLD HICKORY | -6.34 | 15.48 | 17.36
+
+
+
+
 ---
 ### 3. Analyze trends in SalePrice over different year to understand how property prices have changed over time.
 ```sql
