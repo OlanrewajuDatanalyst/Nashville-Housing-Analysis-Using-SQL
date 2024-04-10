@@ -1,16 +1,20 @@
-### 1. Average selling price of Nashville_Housing
+### 1. Average sale price and total value of Nashville_Housing
 ```sql
 select 
     ROUND(avg(saleprice), 2) as AvgSalePrice,
 	ROUND(avg(TotalValue), 2) as AvgTotalValue,
-	count(*) as Total_Properties
+	concat('1: ', ROUND(
+			(avg(saleprice)/ avg(TotalValue)), 3)
+		  ) as Ratio_Value_to_Price
 from 
     Nashville_Housing;
 ```
-avgsaleprice | avgtotalvalue | total_properties
+avgsaleprice | avgtotalvalue | ratio_value_to_price
 -- | -- | -- 
-327530.43 | 232564.48 | 56371
+327530.43 | 232564.48 | 1: 1.408
 
+### Insight:
+The ratio of value to price indicates that properties are selling for more than their assessed values on average, suggesting strong demand or potential overvaluation.
 
 
 ### 2. Analyze trends in SalePrice over different year to understand how property prices have changed over time.
