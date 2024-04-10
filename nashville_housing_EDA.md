@@ -14,7 +14,7 @@ avgsaleprice | avgtotalvalue | ratio_value_to_price
 327530.43 | 232564.48 | 1: 1.408
 
 ### Insight:
-The ratio of value to price indicates that properties are selling for more than their assessed values on average, suggesting strong demand or potential overvaluation.
+The ratio of value to price at 1:1.408 indicates that properties are selling for more than their assessed values on average, suggesting strong demand or potential overvaluation.
 
 
 ### 2. Analyze trends in SalePrice over different year to understand how property prices have changed over time.
