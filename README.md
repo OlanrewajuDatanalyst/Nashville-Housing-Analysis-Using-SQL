@@ -8,17 +8,27 @@ The study delves into the dynamics of Nashville's real estate market, offering i
 Through meticulous cleaning, processing, and analysis utilizing SQL, the study aims to provide stakeholders with a comprehensive understanding of market trends, pricing dynamics, and investment opportunities within the Nashville region.
 
 ---
+## Available Dataset
+
+Dataset: [Kaggle](https://www.kaggle.com/datasets/heesoo37/120-years-of-olympic-history-athletes-and-results)
+
+---
+## Case Study Questions and Answers
+
+[Solution](https://github.com/OlanrewajuDatanalyst/Nashville-Housing-Data-cleaning-and-EDA/blob/main/nashville_housing_market_Analysis.md)
+
+---
 ### Key Findings:
 
 #### Demand and Pricing Trends:
 
-- The dataset reflects a robust real estate market in Nashville, with properties often selling for more than their values, indicating strong demand within the area.
-- Significant variation exists in real estate prices across different cities within the region, emphasizing the diverse nature of property values and economic dynamics.
+- The dataset reflects a robust real estate market in Nashville, with properties often selling for more than their values reporting a ratio of value to sales price at 1 : 1.41, indicating strong demand within the area.
+- Significant variation exists in real estate prices across different cities within the region, emphasizing the diverse nature of property values and economic dynamics. Nashville the capital city reported the highest average price followed by Brentwood by Antioch reported the highest ratio of value to price, 
 
 #### Market Fluctuations and Trends:
 
-- Analysis of housing prices from 2014 to 2016 reveals notable fluctuations, including substantial growth in some areas followed by declines in others, underlining the importance of thorough market analysis for informed decision-making.
-- The consistent decline in market values from 2014 to 2016 suggests a bearish market influenced by factors such as reduced demand and broader economic conditions, presenting both risks and opportunities for investors.
+- Housing prices from 2013 to 2016 reveals notable fluctuations, including substantial growth in some areas followed by declines in others, underlining the importance of thorough market analysis for informed decision-making.
+- The consistent decline in market values from 2013 to 2016 suggests a bearish market influenced by factors such as reduced demand and broader economic conditions, presenting both risks and opportunities for investors.
 
 #### Determinants of Property Value:
 
@@ -35,7 +45,7 @@ Through meticulous cleaning, processing, and analysis utilizing SQL, the study a
 ---
 ### Recommendations:
 
-- **Thorough Market Analysis:** Given the dynamic nature of the Nashville real estate market, stakeholders should conduct thorough market analysis and risk assessments before making investment decisions.
+- **Thorough Market Analysis:** Given the dynamic nature of the Nashville real estate market, stakeholders should conduct thorough risk assessments before making investment decisions.
 
 - **Diversification Strategies:** Diversifying portfolios can help mitigate risks associated with market fluctuations, while also considering diverse investments to capitalize on emerging opportunities.
 
