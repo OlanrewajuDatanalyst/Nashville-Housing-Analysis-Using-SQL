@@ -33,9 +33,11 @@ Relatively smaller segments occupied by vacant residential land, duplexes, and z
 ---
 ### Recommendations:
 
-**Thorough Market Analysis:** Given the dynamic nature of the Nashville real estate market, stakeholders should conduct thorough market analysis and risk assessments before making investment decisions.
-**Diversification Strategies:** Diversifying portfolios can help mitigate risks associated with market fluctuations, while also considering diverse investments to capitalize on emerging opportunities.
-**Innovation and Growth:** Understanding market dynamics not only facilitates strategic investment decisions but also fosters innovation and growth within Nashville's real estate landscape.
+- **Thorough Market Analysis:** Given the dynamic nature of the Nashville real estate market, stakeholders should conduct thorough market analysis and risk assessments before making investment decisions.
+
+- **Diversification Strategies:** Diversifying portfolios can help mitigate risks associated with market fluctuations, while also considering diverse investments to capitalize on emerging opportunities.
+
+- **Innovation and Growth:** Understanding market dynamics not only facilitates strategic investment decisions but also fosters innovation and growth within Nashville's real estate landscape.
 
 ---
 ### Conclusion:
