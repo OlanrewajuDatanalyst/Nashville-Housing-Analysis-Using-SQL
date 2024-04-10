@@ -10,12 +10,12 @@ Through meticulous cleaning, processing, and analysis utilizing SQL, the study a
 ---
 ## Available Dataset
 
-Dataset: [Kaggle](https://www.kaggle.com/datasets/heesoo37/120-years-of-olympic-history-athletes-and-results)
+Dataset: [Cleaned Dateset](https://github.com/OlanrewajuDatanalyst/Nashville-Housing-Data-cleaning-and-EDA/blob/main/HousingEstateDataset.csv)
 
 ---
-## Case Study Questions and Answers
+## Exploratory Data Analysis
 
-[Solution](https://github.com/OlanrewajuDatanalyst/Nashville-Housing-Data-cleaning-and-EDA/blob/main/nashville_housing_market_Analysis.md)
+[Data Analysis](https://github.com/OlanrewajuDatanalyst/Nashville-Housing-Data-cleaning-and-EDA/blob/main/nashville_housing_market_Analysis.md)
 
 ---
 ### Key Findings:
