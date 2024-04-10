@@ -181,7 +181,7 @@ Order by 2 desc
 ```
 ### Output:
 landuse | avgvacantprice | avgvacantvalue | avgoccupiedprice | avgoccupiedvalue
--- | -- | -- | -- 
+-- | -- | -- | -- | --
 VACANT COMMERCIAL LAND | 2275000 | 5700 | 263888.89 | 9444.44
 APARTMENT: LOW RISE (BUILT SINCE 1960) | 2000000 | 493300 | 0 | 0
 DAY CARE CENTER | 1577500 | 472750 | 0 | 0
