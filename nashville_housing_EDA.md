@@ -105,7 +105,7 @@ Similarly, the number of bedrooms has a relatively weak correlation with sale pr
 
 ### 5. Analyze the average SalePrice or TotalValue for different types of Property.
 ```sql
--- Properties Average Sales price from the highest to lowest
+-- Properties Average Sales price from the highest to...
 select * from (
 select 
     landuse,
@@ -114,7 +114,7 @@ from nashville_housing
 group by 1
 order by 2 desc)
 
--- Properties Average Total Value from the highest to lowest
+-- Properties Average Total Value from the highest to...
 select * from (
 select 
     landuse,
