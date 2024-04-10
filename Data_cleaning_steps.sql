@@ -131,7 +131,7 @@ alter column saleprice type integer
 using saleprice::integer
 
 
--- The trend of the dataset last between 2013 to 2016 but has two rows of 2019 dataset
+-- The trend of the dataset last between 2013 to 2016 but has two rows of 2019 dataset, the 2 rows was removed
 alter table nashville_housing
 add Salesyear int
 
