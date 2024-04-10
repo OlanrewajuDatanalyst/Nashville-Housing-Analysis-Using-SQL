@@ -1,3 +1,9 @@
+## <p align="center"> Business Questions And Analysis
+
+The primary aim is to analyze the Nashville real estate market dynamics, with a focus on understanding key trends, identifying drivers of market fluctuations, and providing strategic recommendations for stakeholders based on the insights derived.
+
+---
+
 ### 1. Average sale price and total value of Nashville_Housing
 ```sql
 select 
@@ -16,6 +22,8 @@ avgsaleprice | avgtotalvalue | ratio_value_to_price
 ### Insight:
 The ratio of value to price at 1:1.408 indicates that properties are selling for more than their assessed values on average, suggesting strong demand or potential overvaluation.
 
+---
+### 2. Average sale price and total value of Nashville_Housing with it's cities
 ```sql
 select * from (
 select 
@@ -53,8 +61,8 @@ This variation is mirrored in the average total values, reflecting the nuanced e
 
 The ratio of average total value to average sale price further illuminates the market's efficiency and competitiveness. Notably, **Antioch boasts the highest ratio at 1:2.262**, implying favorable value relative to the sale price, while **Nolensville, though with a high price exhibits the lowest ratio at 1:0.149**, suggesting potential overpricing in comparison to property values. These then underscore the importance of considering both sale prices and total values when assessing investment opportunities or market trends in the real estate sector.
 
-
-### 2. Analyze trends in SalePrice over different year to understand how property prices have changed over time.
+---
+### 3. Analyze trends in SalePrice over different year to understand how property prices have changed over time.
 ```sql
 select 
     *,
