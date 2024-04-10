@@ -1,7 +1,7 @@
 ### 1. Average sale price and total value of Nashville_Housing
 ```sql
 select 
-    ROUND(avg(saleprice), 2) as AvgSalePrice,
+    	ROUND(avg(saleprice), 2) as AvgSalePrice,
 	ROUND(avg(TotalValue), 2) as AvgTotalValue,
 	concat('1: ', ROUND(
 			(avg(saleprice)/ avg(TotalValue)), 3)
