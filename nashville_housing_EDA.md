@@ -192,34 +192,44 @@ from (
 
 ### Analyze the frequency and distribution of vacant properties based on SoldAsVacant.
 ```sql
-with cte1 as (          
+with cte1 as (
+            select
+                distinct landuse,
+                count(landuse) over() as Total_Properties
+            from nashville_housing
+            where soldasvacant = 'Yes'),
+    cte2 as (
             select 
                 landuse,
-                count (1) as Soldasvacant_
+                count(landuse) as TotalbyLandUse
             from nashville_housing
-            where soldasvacant = 'No'
-            group by 1
-            ),
-    cte2 as (
-            select
-                landuse,
-                count(1) as Landuse_Tot
-            from nashville_housing
-            group by 1
-            )
-    -- cte3 as (
-    --      select
-    --          sum(landuse) as Total_properties 
-    --      from cte2
-    --      )
+            where soldasvacant = 'Yes'
+            group by 1)
 select
-    b.landuse,
-    b.Soldasvacant_,
-    a.Landuse_Tot 
---  c.Total_properties 
-from cte2 a
-right join cte1 b
-    on a.landuse = b.landuse
---join cte3 c
---  on a.landuse = c.landuse
+    Landuse,
+    Tot_Properties,
+    Tot_by_Landuse,
+    concat(ROUND((Tot_by_Landuse / Tot_Properties)* 100, 2), '%') as SoldAsVacantDist_
+from (
+        select 
+            a.landuse,
+            Total_Properties::numeric as Tot_Properties,
+            TotalbyLandUse::numeric as Tot_by_Landuse
+        from cte2 b
+        join cte1 a
+            on b.landuse = a.landuse
+        order by 3 desc)
 ```
+### Output:
+landuse | tot_properties | tot_by_landuse | soldasvacantdist_
+-- | -- | -- | -- 
+VACANT RESIDENTIAL LAND | 4669 | 2845 | 60.93%
+VACANT RES LAND | 4669 | 961 | 20.58%
+SINGLE FAMILY | 4669 | 593 | 12.70%
+RESIDENTIAL CONDO | 4669 | 223 | 4.78%
+RESIDENTIAL COMBO/MISC | 4669 | 13 | 0.28%
+DUPLEX | 4669 | 9 | 0.19%
+VACANT COMMERCIAL LAND | 4669 | 8 | 0.17%
+FOREST | 4669 | 3 | 0.06%
+TRIPLEX | 4669 | 2 | 0.04%
+VACANT ZONED MULTI FAMILY | 4669 | 2 | 0.04%
