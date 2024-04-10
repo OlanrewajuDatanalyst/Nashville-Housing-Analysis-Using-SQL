@@ -46,7 +46,7 @@ BRENTWOOD | 312258.06 | 434475.98 | 1: 0.719
 NOLENSVILLE | 287143.72 | 1921700 | 1: 0.149
 
 ### Insight:
-The real estate landscape presents a diverse range of average sale prices, spanning from $25,000 in Bellevue to $366,624.76 in Nashville, showcasing significant variability in property values throughout the region. 
+The real estate landscape presents a diverse range of average sale prices, spanning from $25,000 in Bellevue to ***$366,624.76*** in Nashville, showcasing significant variability in property values throughout the region. 
 
 This variation is mirrored in the average total values, reflecting the nuanced economic dynamics and real estate market conditions within each city. 
 
