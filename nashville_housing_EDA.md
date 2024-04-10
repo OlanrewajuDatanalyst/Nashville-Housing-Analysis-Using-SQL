@@ -1,23 +1,19 @@
 ### 1. Average selling price of Nashville_Housing
 ```sql
 select 
-    ROUND(avg(saleprice), 2) as AvgSalePrice
+    ROUND(avg(saleprice), 2) as AvgSalePrice,
+	ROUND(avg(TotalValue), 2) as AvgTotalValue,
+	count(*) as Total_Properties
 from 
     Nashville_Housing;
 ```
+avgsaleprice | avgtotalvalue | total_properties
+-- | -- | -- 
+327530.43 | 232564.48 | 56371
 
 
-### 2. Count the frequency of different LandUse categories.
-```sql
-select 
-    landuse,
-    count(*) as frequency
-from nashville_housing
-group by 1
-order by 2 desc
-```
 
-### 3. Analyze trends in SalePrice over different year to understand how property prices have changed over time.
+### 2. Analyze trends in SalePrice over different year to understand how property prices have changed over time.
 ```sql
 select 
     *,
@@ -49,7 +45,7 @@ From 2013 to 2015, there was substantial growth in yearly property prices, likel
 Understanding the 2016 decline's causes is vital for effective strategy adjustment. Diversify portfolios to mitigate risks, consider diverse investments is crucial.
 
 
-### 4. Examine trends in TotalValue over the years to identify patterns in property valuations.
+### 3. Examine trends in TotalValue over the years to identify patterns in property valuations.
 ```sql
 select 
     *,
@@ -82,7 +78,7 @@ This trend presents opportunities for acquiring properties at lower prices, thou
 
 
 
-### 5. Determine the correlation between SalePrice and other numerical variables such as Acreage, LandValue, BuildingValue, TotalValue, Bedrooms, to understand their relationships.
+### 4. Determine the correlation between SalePrice and other numerical variables such as Acreage, LandValue, BuildingValue, TotalValue, Bedrooms, to understand their relationships.
 ```sql
 select 
     ROUND(corr(SalePrice, Acreage)::numeric, 3) as Acreage,
@@ -107,20 +103,58 @@ Similarly, the number of bedrooms has a relatively weak correlation with sale pr
 
 
 
-### 6. Analyze the average SalePrice or TotalValue for different types of properties.
+### 5. Analyze the average SalePrice or TotalValue for different types of Property.
 ```sql
+-- Properties Average Sales price from the highest to lowest
 select * from (
 select 
     landuse,
-    ROUND(avg(saleprice), 2) AvgSaleprice,
-    ROUND(avg(Totalvalue), 2) AvgTotalValue,
+    ROUND(avg(saleprice), 2) AvgSaleprice
 from nashville_housing
 group by 1
 order by 2 desc)
+
+-- Properties Average Total Value from the highest to lowest
+select * from (
+select 
+    landuse,
+    ROUND(avg(Totalvalue), 2) AvgTotalValue
+from nashville_housing
+group by 1
+order by 2 desc)
+where AvgTotalValue is not null
 ```
+### Output by Saleprice:
+-- | --
+landuse | avgsaleprice
+VACANT COMMERCIAL LAND | 3235294.12
+APARTMENT: LOW RISE (BUILT SINCE 1960) | 2000000
+DAY CARE CENTER | 1577500
+CONDO | 1260063.77
+CONDOMINIUM OFC  OR OTHER COM CONDO | 1254597.14
+PARKING LOT | 1225336.36
+LIGHT MANUFACTURING | 1200000
+FOREST | 1085330
+CHURCH | 840590.91
+GREENBELT | 604938.5
+
+### Output by TotalValue:
+landuse | avgtotalvalue
+-- | --
+LIGHT MANUFACTURING | 888500
+CHURCH | 775258.06
+APARTMENT: LOW RISE (BUILT SINCE 1960) | 493300
+DAY CARE CENTER | 472750
+OFFICE BLDG (ONE OR TWO STORIES) | 459450
+SPLIT CLASS | 457046.67
+STRIP SHOPPING CENTER | 389900
+NON-PROFIT CHARITABLE SERVICE | 379300
+FOREST | 310493.4
+VACANT RES LAND | 274195.51
 
 
-### 7.This is to check the number of properties sold as vacant compare to those not sold as vacant, and the land use with the most vacant before sale
+
+### 6. This is to check the number of properties sold as vacant compare to those not sold as vacant, and the land use with the most vacant before sale
 ```sql
 select 
     landuse,
@@ -140,8 +174,21 @@ from(
 group by 1
 order by 2 desc
 ```
+landuse | vacant | notvacant
+-- | -- | -- 
+SINGLE FAMILY | 33524 | 593
+RESIDENTIAL CONDO | 13841 | 223
+DUPLEX | 1363 | 9
+ZERO LOT LINE | 1047 | 0
+VACANT RESIDENTIAL LAND | 695 | 2845
+VACANT RES LAND | 588 | 961
+CONDO | 247 | 0
+TRIPLEX | 90 | 2
+RESIDENTIAL COMBO/MISC | 82 | 13
+QUADPLEX | 39 | 0
 
-### 8.Investigate the average price, total value of properties sold as vacant and those sold as occupied.
+
+### 7. Investigate the average price, total value of properties sold as vacant and those sold as occupied.
 ```sql
 with  cte as (
         select 
@@ -193,7 +240,8 @@ CONDOMINIUM OFC  OR OTHER COM CONDO | 553805.88 | 0 | 10588.24 | 0
 STRIP SHOPPING CENTER | 424900 | 389900 | 0 | 0
 SMALL SERVICE SHOP | 400000 | 0 | 0 | 0
 
-### 9.Compare the distribution of property types based on LandUse.
+
+### 8. Compare the frequency and distribution of property types based on LandUse.
 ```sql
 select
     *,
@@ -221,7 +269,7 @@ ZERO LOT LINE | 1047 | 1.86%
 
 
 
-### Analyze the frequency and distribution of vacant properties based on SoldAsVacant.
+### 9. Analyze the frequency and distribution of vacant properties based on SoldAsVacant.
 ```sql
 with cte1 as (
             select
