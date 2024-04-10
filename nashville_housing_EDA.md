@@ -22,8 +22,9 @@ select
 	distinct city,
 	ROUND(avg(saleprice), 2) as AvgSalePrice,
 	ROUND(avg(TotalValue), 2) as AvgTotalValue,
-	ROUND(
-			(avg(saleprice)/ avg(TotalValue)), 3) as Ratio_Value_to_Price
+	concat('1: ', ROUND(
+			(avg(saleprice)/ avg(TotalValue)), 3)
+		  ) as Ratio_Value_to_Price
 from Nashville_Housing
 group by city
 order by 4 desc)
@@ -46,11 +47,11 @@ BRENTWOOD | 312258.06 | 434475.98 | 1: 0.719
 NOLENSVILLE | 287143.72 | 1921700 | 1: 0.149
 
 ### Insight:
-The real estate landscape presents a diverse range of average sale prices, spanning from $25,000 in Bellevue to ***$366,624.76*** in Nashville, showcasing significant variability in property values throughout the region. 
+The real estate landscape presents a diverse range of average sale prices, spanning from **$25,000 in Bellevue** to **$366,624.76 in Nashville**, showcasing significant variability in property values throughout the region. 
 
 This variation is mirrored in the average total values, reflecting the nuanced economic dynamics and real estate market conditions within each city. 
 
-The ratio of average total value to average sale price further illuminates the market's efficiency and competitiveness. Notably, Antioch boasts the highest ratio at 1:2.262, implying favorable value relative to the sale price, while Nolensville, though with a high price exhibits the lowest ratio at 1:0.149, suggesting potential overpricing in comparison to property values. These then underscore the importance of considering both sale prices and total values when assessing investment opportunities or market trends in the real estate sector.
+The ratio of average total value to average sale price further illuminates the market's efficiency and competitiveness. Notably, **Antioch boasts the highest ratio at 1:2.262**, implying favorable value relative to the sale price, while **Nolensville, though with a high price exhibits the lowest ratio at 1:0.149**, suggesting potential overpricing in comparison to property values. These then underscore the importance of considering both sale prices and total values when assessing investment opportunities or market trends in the real estate sector.
 
 
 ### 2. Analyze trends in SalePrice over different year to understand how property prices have changed over time.
