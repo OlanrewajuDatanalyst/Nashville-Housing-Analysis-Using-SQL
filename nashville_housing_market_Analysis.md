@@ -55,12 +55,11 @@ BRENTWOOD | 312258.06 | 434475.98 | 1: 0.719
 NOLENSVILLE | 287143.72 | 1921700 | 1: 0.149
 
 ### Insight:
-The real estate landscape presents a diverse range of average sale prices, spanning from **$25,000 in Bellevue** to **$366,624.76 in Nashville**, showcasing significant variability in property values throughout the region. 
+Real estate prices vary significantly across cities, with average sale prices ranging from $25,000 in Bellevue to $366,624.76 in Nashville, indicating diverse property values within the region.
 
-This variation is mirrored in the average total values, reflecting the nuanced economic dynamics and real estate market conditions within each city. 
+Average total values mirror this variability, reflecting nuanced economic dynamics and market conditions in each city, highlighting the complexity of the real estate landscape.
 
-The ratio of average total value to average sale price further illuminates the market's efficiency and competitiveness. Notably, **Antioch boasts the highest ratio at 1:2.262**, implying favorable value relative to the sale price, while **Nolensville, though with a high price exhibits the lowest ratio at 1:0.149**, suggesting potential overpricing in comparison to property values. These then underscore the importance of considering both sale prices and total values when assessing investment opportunities or market trends in the real estate sector.
-
+The ratio of average total value to average sale price, such as Antioch's ratio of 1:2.262 and Nolensville's ratio of 1:0.149, emphasizes the importance of considering both sale prices and total values for informed investment decisions and understanding market trends accurately.
 
 ---
 ### 3. Analyze trends in SalePrice over different year to understand how prices have changed over time in each cities.
@@ -105,11 +104,14 @@ GOODLETTSVILLE | -0.33 | -- | -54.00
 MOUNT JULIET | -3.36 | 15.58 | 31.54
 OLD HICKORY | -6.34 | 15.48 | 17.36
 
+### Insight:
+The table showcases the percentage change in housing prices across various cities in the Nashville area from 2014 to 2016. Noteworthy trends include substantial growth in Nashville and Madison in 2014, followed by mixed performance in subsequent years. Antioch and Whites Creek saw significant declines in 2016, indicating potential market corrections. 
 
+Overall, these fluctuations underscore the importance of thorough market analysis and risk assessment for investors navigating the dynamic real estate landscape of the Nashville region.
 
 
 ---
-### 3. Analyze trends in SalePrice over different year to understand how property prices have changed over time.
+### 4. Analyze trends in SalePrice over different year to understand how property prices have changed over time.
 ```sql
 select 
     *,
@@ -141,7 +143,7 @@ From 2013 to 2015, there was substantial growth in yearly property prices, likel
 Understanding the 2016 decline's causes is vital for effective strategy adjustment. Diversify portfolios to mitigate risks, consider diverse investments is crucial.
 
 ---
-### 4. Examine trends in TotalValue over the years to identify patterns in property valuations.
+### 5. Examine trends in TotalValue over the years to identify patterns in property valuations.
 ```sql
 select 
     *,
@@ -173,7 +175,7 @@ The consistent decline in market values, accelerating from -3.6% in 2014 to -10.
 This trend presents opportunities for acquiring properties at lower prices, though it necessitates careful analysis to avoid risks in a declining market. Strategies such as portfolio diversification, renovations, and value-add projects can counteract market downturns.
 
 ---
-### 5. Determine the correlation between SalePrice and other numerical variables such as Acreage, LandValue, BuildingValue, TotalValue, Bedrooms, to understand their relationships.
+### 6. Determine the correlation between SalePrice and other numerical variables such as Acreage, LandValue, BuildingValue, TotalValue, Bedrooms, to understand their relationships.
 ```sql
 select 
     ROUND(corr(SalePrice, Acreage)::numeric, 3) as Acreage,
@@ -197,7 +199,7 @@ However, the size of a property, measured in acres, has a weak positive correlat
 Similarly, the number of bedrooms has a relatively weak correlation with sale price, indicating that property size (bedrooms) isn't the main determinant of value.
 
 ---
-### 6. Compare the frequency and distribution of property types based on LandUse.
+### 7. Compare the frequency and distribution of property types based on LandUse.
 ```sql
 select
     *,
@@ -231,7 +233,7 @@ However, the relatively smaller segments occupied by vacant residential land (5.
 Understanding these dynamics not only allows for strategic investment decisions but also fosters innovation and growth within Nashville's dynamic real estate landscape.
 
 ---
-### 7. Analyze the frequency and distribution of vacant properties based on SoldAsVacant.
+### 8. Analyze the frequency and distribution of vacant properties based on SoldAsVacant.
 ```sql
 with cte1 as (
             select
@@ -271,7 +273,7 @@ RESIDENTIAL CONDO | 4669 | 223 | 4.78%
 RESIDENTIAL COMBO/MISC | 4669 | 13 | 0.28%
 
 ---
-### 8. Analyze the average SalePrice for different types of Property.
+### 9. Analyze the average SalePrice for different types of Property.
 ```sql
 -- Properties Average Sales price from the highest to...
 select * from (
@@ -298,7 +300,7 @@ CHURCH | 840590.91
 GREENBELT | 604938.5
 
 ---
-### 9. Analyze the TotalValue for different types of Property.
+### 10. Analyze the TotalValue for different types of Property.
 ```sql
 -- Properties Average Total Value from the highest to...
 select * from (
@@ -326,7 +328,7 @@ FOREST | 310493.4
 VACANT RES LAND | 274195.51
 
 ---
-### 10. Analyze the number of properties sold as vacant compare to those not sold as vacant, and the land use with the most vacant before sale
+### 11. Analyze the number of properties sold as vacant compare to those not sold as vacant, and the land use with the most vacant before sale
 ```sql
 select 
     landuse,
@@ -360,7 +362,7 @@ RESIDENTIAL COMBO/MISC | 82 | 13
 QUADPLEX | 39 | 0
 
 ---
-### 11. Investigate the average price, total value of properties sold as vacant and those sold as occupied.
+### 12. Investigate the average price, total value of properties sold as vacant and those sold as occupied.
 ```sql
 with  cte as (
         select 
