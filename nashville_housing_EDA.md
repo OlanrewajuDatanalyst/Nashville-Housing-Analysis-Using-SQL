@@ -93,8 +93,8 @@ From 2013 to 2015, there was substantial growth in yearly property prices, likel
 
 Understanding the 2016 decline's causes is vital for effective strategy adjustment. Diversify portfolios to mitigate risks, consider diverse investments is crucial.
 
-
-### 3. Examine trends in TotalValue over the years to identify patterns in property valuations.
+---
+### 4. Examine trends in TotalValue over the years to identify patterns in property valuations.
 ```sql
 select 
     *,
@@ -125,8 +125,8 @@ The consistent decline in market values, accelerating from -3.6% in 2014 to -10.
 
 This trend presents opportunities for acquiring properties at lower prices, though it necessitates careful analysis to avoid risks in a declining market. Strategies such as portfolio diversification, renovations, and value-add projects can counteract market downturns.
 
-
-### 4. Determine the correlation between SalePrice and other numerical variables such as Acreage, LandValue, BuildingValue, TotalValue, Bedrooms, to understand their relationships.
+---
+### 5. Determine the correlation between SalePrice and other numerical variables such as Acreage, LandValue, BuildingValue, TotalValue, Bedrooms, to understand their relationships.
 ```sql
 select 
     ROUND(corr(SalePrice, Acreage)::numeric, 3) as Acreage,
@@ -149,8 +149,8 @@ However, the size of a property, measured in acres, has a weak positive correlat
 
 Similarly, the number of bedrooms has a relatively weak correlation with sale price, indicating that property size (bedrooms) isn't the main determinant of value.
 
-
-### 5. Compare the frequency and distribution of property types based on LandUse.
+---
+### 6. Compare the frequency and distribution of property types based on LandUse.
 ```sql
 select
     *,
@@ -183,8 +183,8 @@ However, the relatively smaller segments occupied by vacant residential land (5.
 
 Understanding these dynamics not only allows for strategic investment decisions but also fosters innovation and growth within Nashville's dynamic real estate landscape.
 
-
-### 6. Analyze the frequency and distribution of vacant properties based on SoldAsVacant.
+---
+### 7. Analyze the frequency and distribution of vacant properties based on SoldAsVacant.
 ```sql
 with cte1 as (
             select
@@ -223,7 +223,8 @@ SINGLE FAMILY | 4669 | 593 | 12.70%
 RESIDENTIAL CONDO | 4669 | 223 | 4.78%
 RESIDENTIAL COMBO/MISC | 4669 | 13 | 0.28%
 
-### 7. Analyze the average SalePrice for different types of Property.
+---
+### 8. Analyze the average SalePrice for different types of Property.
 ```sql
 -- Properties Average Sales price from the highest to...
 select * from (
@@ -249,7 +250,8 @@ FOREST | 1085330
 CHURCH | 840590.91
 GREENBELT | 604938.5
 
-### 8. Analyze the TotalValue for different types of Property.
+---
+### 9. Analyze the TotalValue for different types of Property.
 ```sql
 -- Properties Average Total Value from the highest to...
 select * from (
@@ -276,9 +278,8 @@ NON-PROFIT CHARITABLE SERVICE | 379300
 FOREST | 310493.4
 VACANT RES LAND | 274195.51
 
-
-
-### 9. Analyze the number of properties sold as vacant compare to those not sold as vacant, and the land use with the most vacant before sale
+---
+### 10. Analyze the number of properties sold as vacant compare to those not sold as vacant, and the land use with the most vacant before sale
 ```sql
 select 
     landuse,
@@ -311,8 +312,8 @@ TRIPLEX | 90 | 2
 RESIDENTIAL COMBO/MISC | 82 | 13
 QUADPLEX | 39 | 0
 
-
-### 10. Investigate the average price, total value of properties sold as vacant and those sold as occupied.
+---
+### 11. Investigate the average price, total value of properties sold as vacant and those sold as occupied.
 ```sql
 with  cte as (
         select 
