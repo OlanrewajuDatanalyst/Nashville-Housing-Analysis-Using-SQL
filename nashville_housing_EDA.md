@@ -128,7 +128,11 @@ DUPLEX | 1372 | 2.43%
 ZERO LOT LINE | 1047 | 1.86%
 
 ### Output:
-The dominance of single-family properties at 60.52%, followed by residential condos at 24.95%, underscores the robust demand for traditional housing options in Nashville's real estate market. This trend presents significant opportunities for investors, developers, and stakeholders to capitalize on. However, the relatively smaller segments occupied by vacant residential land (5.38%), duplexes (4.29%), and zero lot lines (1.86%) highlight potential areas for expansion and diversification. Understanding these dynamics not only allows for strategic investment decisions but also fosters innovation and growth within Nashville's dynamic real estate landscape.
+The dominance of single-family properties at 60.52%, followed by residential condos at 24.95%, underscores the robust demand for traditional housing options in Nashville's real estate market. This trend presents significant opportunities for investors, developers, and stakeholders to capitalize on. 
+
+However, the relatively smaller segments occupied by vacant residential land (5.38%), duplexes (4.29%), and zero lot lines (1.86%) highlight potential areas for expansion and diversification. 
+
+Understanding these dynamics not only allows for strategic investment decisions but also fosters innovation and growth within Nashville's dynamic real estate landscape.
 
 
 ### 6. Analyze the frequency and distribution of vacant properties based on SoldAsVacant.
