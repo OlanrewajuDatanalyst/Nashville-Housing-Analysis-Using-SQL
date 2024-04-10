@@ -141,13 +141,15 @@ group by 1
 order by 2 desc
 ```
 
-### 8.Investigate the average price, total value and difference in SalePrice between properties sold as vacant and those sold as occupied.
+### 8.Investigate the average price, total value of properties sold as vacant and those sold as occupied.
 ```sql
 with  cte as (
         select 
             landuse,    
             coalesce(Vacant_price, 0) as Vacant_price,
-            coalesce(Occupied_Price, 0) as Occupied_Price
+            coalesce(Occupied_Price, 0) as Occupied_Price,
+			coalesce(Vacant_Value, 0) as Vacant_Value,
+            coalesce(Occupied_Value, 0) as Occupied_Value
         from(
             select 
                 landuse,
@@ -156,21 +158,40 @@ with  cte as (
                 end Vacant_price,
                 case 
                     when soldasvacant = 'Yes' then saleprice
-                end Occupied_Price
+                end Occupied_Price,
+				case 
+                    when soldasvacant = 'No' then Totalvalue
+                end Vacant_Value,
+                case 
+                    when soldasvacant = 'Yes' then Totalvalue
+                end Occupied_Value
             from nashville_housing
             )
-        group by 1, Vacant_price, Occupied_Price 
+        group by 1, 2, 3, 4, 5 
 )
 select
     Landuse,
     ROUND(Avg(Vacant_price), 2) as AvgVacantPrice,
+	ROUND(Avg(Vacant_Value), 2) as AvgVacantvalue,
     ROUND(Avg(Occupied_Price), 2) as AvgOccupiedPrice,
-    ROUND((Avg(Occupied_Price) - Avg(Vacant_price)), 2) Avg_Price_Difference
+    ROUND(Avg(Occupied_Value), 2) as AvgOccupiedValue
 from cte
 group by 1
-Order by 4
+Order by 2 desc
 ```
-
+### Output:
+landuse | avgvacantprice | avgvacantvalue | avgoccupiedprice | avgoccupiedvalue
+-- | -- | -- | -- 
+VACANT COMMERCIAL LAND | 2275000 | 5700 | 263888.89 | 9444.44
+APARTMENT: LOW RISE (BUILT SINCE 1960) | 2000000 | 493300 | 0 | 0
+DAY CARE CENTER | 1577500 | 472750 | 0 | 0
+PARKING LOT | 1170790.91 | 46981.82 | 54545.45 | 43900
+CHURCH | 836348.48 | 728272.73 | 4242.42	0
+GREENBELT | 597138.5 | 153480.7 | 7800 | 5832
+SPLIT CLASS | 572221.59 | 391894.12 | 11705.88 | 11382.35
+CONDOMINIUM OFC  OR OTHER COM CONDO | 553805.88 | 0 | 10588.24 | 0
+STRIP SHOPPING CENTER | 424900 | 389900 | 0 | 0
+SMALL SERVICE SHOP | 400000 | 0 | 0 | 0
 
 ### 9.Compare the distribution of property types based on LandUse.
 ```sql
@@ -188,6 +209,16 @@ from (
     order by 2 desc
     )
 ```
+### Output:
+landuse | total_properties | property_type_distribution
+-- | -- | --  
+SINGLE FAMILY | 34117 | 60.52%
+RESIDENTIAL CONDO | 14064 | 24.95%
+VACANT RESIDENTIAL LAND | 3540 | 6.28%
+VACANT RES LAND | 1549 | 2.75%
+DUPLEX | 1372 | 2.43%
+ZERO LOT LINE | 1047 | 1.86%
+
 
 
 ### Analyze the frequency and distribution of vacant properties based on SoldAsVacant.
@@ -228,8 +259,3 @@ VACANT RES LAND | 4669 | 961 | 20.58%
 SINGLE FAMILY | 4669 | 593 | 12.70%
 RESIDENTIAL CONDO | 4669 | 223 | 4.78%
 RESIDENTIAL COMBO/MISC | 4669 | 13 | 0.28%
-DUPLEX | 4669 | 9 | 0.19%
-VACANT COMMERCIAL LAND | 4669 | 8 | 0.17%
-FOREST | 4669 | 3 | 0.06%
-TRIPLEX | 4669 | 2 | 0.04%
-VACANT ZONED MULTI FAMILY | 4669 | 2 | 0.04%
