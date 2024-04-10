@@ -1,4 +1,4 @@
-# Nashville Real Estate Analysis
+# Nashville Housing Analysis
 
 ---
 ### Introduction:
