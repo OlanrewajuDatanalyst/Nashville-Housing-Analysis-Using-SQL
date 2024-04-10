@@ -125,8 +125,9 @@ order by 2 desc)
 where AvgTotalValue is not null
 ```
 ### Output by Saleprice:
--- | --
+
 landuse | avgsaleprice
+-- | --
 VACANT COMMERCIAL LAND | 3235294.12
 APARTMENT: LOW RISE (BUILT SINCE 1960) | 2000000
 DAY CARE CENTER | 1577500
